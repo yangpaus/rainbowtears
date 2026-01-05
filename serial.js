@@ -59,4 +59,5 @@ function mousePressed() {
 
   // (선택) 이미 연결된 후 디버그용 리셋
   tearSystem.reset();
+  startCamera();
 }
