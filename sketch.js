@@ -33,7 +33,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 1024);
+  createCanvas(600, 1020);
   textFont(myfont);
 
   liquid = new Liquid(0, height - 120, width, 120, 0.15);
@@ -92,8 +92,8 @@ function startCamera() {
   video = createCapture(
     {
       video: {
-        width: 320,
-        height: 240
+        width: 600,
+        height: 1020
       },
       audio: false
     },
