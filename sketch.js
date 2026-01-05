@@ -1,4 +1,5 @@
-let video;
+let video = null;
+let camReady = false;
 let facemesh;
 let predictions = [];
 let faceX = 200;
@@ -83,4 +84,33 @@ function draw() {
   textAlign(LEFT, TOP);
   text(`dV: ${lastDV.toFixed(1)} mV`, 10, 10);
   text(`Valve step: ${valveStep}`, 10, 28);
+}
+
+function startCamera() {
+  if (camReady) return;
+
+  video = createCapture(
+    {
+      video: {
+        width: 320,
+        height: 240
+      },
+      audio: false
+    },
+    () => {
+      console.log("📷 Camera stream started");
+      camReady = true;
+
+      facemesh = ml5.faceMesh(
+        video,
+        {
+          maxFaces: 1,
+          refineLandmarks: false
+        },
+        modelReady
+      );
+    }
+  );
+
+  video.hide();
 }
