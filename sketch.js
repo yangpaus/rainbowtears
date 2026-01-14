@@ -36,7 +36,7 @@ function setup() {
   createCanvas(600, 1020);
   textFont(myfont);
 
-  liquid = new Liquid(0, height - 120, width, 120, 0.15);
+  liquid = new Liquid(0, height / 2, width, height / 2, 0.15);
   tearSystem = new TearSystem(liquid);
 
   textAlign(CENTER, CENTER);
